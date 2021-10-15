@@ -60,25 +60,29 @@ const zooAnimals = [
   */
 
   function animalNames(habitats){
-    const displayNames = [];
+    const dpNames = [];
       habitats.forEach((title)=>{
-      displayNames.push(`name: ${title.animalName}, scientific: ${title.scientificName}`)
+      dpNames.push(`name: ${title.animal_name}, scientific: ${title.scientific_name}`)
     })          
-    return displayNames
+    return dpNames
   }
   
-   
   
-
   /* 🦁🦁🦁 Request 2: .map() 🦁🦁🦁
   The zoo needs a list of all their animal's names converted to lower case. 
   Using lowerCaseNames use .map() to create a new array of strings with the animal's names in lowercase and return the new array. 
   For example: ['jackal, asiatic', .....]
   */
 
-  function lowerCaseNames(/*Your Code Here*/){
-    /*Your Code Here*/
-  }
+  function lowerCaseNames(habitats){
+    const dpNamesLC = habitats.map((title)=>{
+      return title.animal_name.toLowerCase()
+      });
+      return dpNamesLC
+    }
+
+    
+    
   
   
   /* 🦁🦁🦁 Request 3: .filter() 🦁🦁🦁
@@ -86,8 +90,8 @@ const zooAnimals = [
   Using lowPopulationAnimals use .filter() to create a new array of objects which contains only the animals with a population of less than 5.
   */
 
-  function lowPopulationAnimals(/*Your Code Here*/){
-    /*Your Code Here*/
+  function lowPopulationAnimals(){
+    
   }
   
 
