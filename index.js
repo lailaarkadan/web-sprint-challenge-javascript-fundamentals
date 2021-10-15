@@ -59,9 +59,9 @@ const zooAnimals = [
   displayNames will be an array of strings, and each string should follow this pattern: "name: {name}, scientific: {scientific name}"
   */
 
-  function animalNames(zooAnimals){
+  function animalNames(habitats){
     const dpNames = [];
-      zooAnimals.forEach((title)=>{
+      habitats.forEach((title)=>{
       dpNames.push(`name: ${title.animal_name}, scientific: ${title.scientific_name}`)
     })          
     return dpNames
@@ -74,12 +74,13 @@ const zooAnimals = [
   For example: ['jackal, asiatic', .....]
   */
 
-  function lowerCaseNames(zooAnimals){
-    const dpNamesLC = zooAnimals.map((title)=>{
+  function lowerCaseNames(habitats){
+    const dpNamesLC = habitats.map((title)=>{
       return title.animal_name.toLowerCase()
       });
       return dpNamesLC
     }
+    
 
     
   /* 🦁🦁🦁 Request 3: .filter() 🦁🦁🦁
@@ -87,27 +88,21 @@ const zooAnimals = [
   Using lowPopulationAnimals use .filter() to create a new array of objects which contains only the animals with a population of less than 5.
   */
 
-  function lowPopulationAnimals(zooAnimals){
-    const dpNames = zooAnimals.filter((inhabitants) => {
-      return inhabitants.population < 5;
-    })
-  }
-
-    
-    
+function lowPopulationAnimals(habitats){
+  return habitats.filter(function(item){
+    return item.population < 5;
+  });
+}
   /* 🦁🦁🦁 Request 4: .reduce() 🦁🦁🦁
   The zoo needs to know their total animal population across the United States. 
   Using USApop find the total population from the zoos array using the .reduce() method. 
   Remember the reduce method takes two arguments: a callback (which itself takes two args - the accumulator and the item), and an initial value for the count.
   */
-
-  function USApop(zooAnimals){
-    const habitats = zooAnimals.reduce((a, b) => a + b.population, 0);
-
-
+  
+  function USApop(habitats){
+    
   }
-  
-  
+
   // 🦁🦁🦁 Callbacks 🦁🦁🦁  
   /* 🦁🦁🦁 Step 1: Create a higher-order function 🦁🦁🦁
     * Use the higher-order function consume with 3 parameters: a, b and cb
@@ -198,10 +193,10 @@ console.log(cuboid.surfaceArea()); // 130
 //🦄🦄🦄 1. Take your prototypes from above and refactor into class syntax. Please rename your class CuboidMakerTwo and your object cuboidTwo 🦄🦄🦄
 
 class CuboidMakerTwo{
-  constructor(Length, Width, Height ){
-    this.length = Length.length;
-    this.width = Width.width;
-    this.height = Height.height;
+  constructor(object){
+    this.length = object.length;
+    this.width = object.width;
+    this.height = object.height;
   }
   volume(){
     return (this.length * this.width * this.height)
@@ -210,9 +205,16 @@ class CuboidMakerTwo{
     return (2*(this.length * this.width + this.length * this.height + this.width * this.height))
   }
 }
+const cuboidTwo = new CuboidMaker({
+  length: 4,
+  width: 5,
+  height: 5,
+})
+
+
 //🦄🦄🦄 Test your volume and surfaceArea methods by uncommenting the logs below: 🦄🦄🦄
- //console.log(cuboidTwo.volume());  //100
- //console.log(cuboidTwo.surfaceArea()); //130
+ console.log(cuboidTwo.volume());  //100
+ console.log(cuboidTwo.surfaceArea()); //130
 
 
 
