@@ -59,9 +59,9 @@ const zooAnimals = [
   displayNames will be an array of strings, and each string should follow this pattern: "name: {name}, scientific: {scientific name}"
   */
 
-  function animalNames(habitats){
+  function animalNames(zooAnimals){
     const dpNames = [];
-      habitats.forEach((title)=>{
+      zooAnimals.forEach((title)=>{
       dpNames.push(`name: ${title.animal_name}, scientific: ${title.scientific_name}`)
     })          
     return dpNames
@@ -74,35 +74,37 @@ const zooAnimals = [
   For example: ['jackal, asiatic', .....]
   */
 
-  function lowerCaseNames(habitats){
-    const dpNamesLC = habitats.map((title)=>{
+  function lowerCaseNames(zooAnimals){
+    const dpNamesLC = zooAnimals.map((title)=>{
       return title.animal_name.toLowerCase()
       });
       return dpNamesLC
     }
 
     
-    
-  
-  
   /* 🦁🦁🦁 Request 3: .filter() 🦁🦁🦁
   The zoo is concerned about animals with a lower population count. 
   Using lowPopulationAnimals use .filter() to create a new array of objects which contains only the animals with a population of less than 5.
   */
 
-  function lowPopulationAnimals(){
-    
+  function lowPopulationAnimals(zooAnimals){
+    const dpNames = zooAnimals.filter((inhabitants) => {
+      return inhabitants.population < 5;
+    })
   }
-  
 
+    
+    
   /* 🦁🦁🦁 Request 4: .reduce() 🦁🦁🦁
   The zoo needs to know their total animal population across the United States. 
   Using USApop find the total population from the zoos array using the .reduce() method. 
   Remember the reduce method takes two arguments: a callback (which itself takes two args - the accumulator and the item), and an initial value for the count.
   */
 
-  function USApop(/*Your Code Here*/){
-    /*Your Code Here*/
+  function USApop(zooAnimals){
+    const habitats = zooAnimals.reduce((a, b) => a + b.population, 0);
+
+
   }
   
   
@@ -114,31 +116,30 @@ const zooAnimals = [
     * The consume function should return the invocation of cb, passing a and b into cb as arguments
   */
 
-  function consume(/*Your Code Here */){
-    /*Your Code Here */
+  function consume(a, b, callback){
+    return callback(a, b);
   }
- 
   
   /* 🦁🦁🦁 Step 2: Create several functions to callback with consume(); 🦁🦁🦁 */
  // 🦁🦁🦁 Use add to return the sum of two numbers 🦁🦁🦁
   
-function add(/*Your Code Here */){
-    /*Your Code Here*/
+  function add(a, b){
+    return a + b;
   }
-
+  
 
 // 🦁🦁🦁 Use multiply to return the product of two numbers 🦁🦁🦁
   
-function multiply(/*Your Code Here */){
-   /*Your Code Here */
+function multiply(a , b){
+  return a * b;
   }
 
 
  // 🦁🦁🦁 Use greeting to accept a first and last name and return "Hello {first-name} {last-name}, nice to meet you!" 🦁🦁🦁
   
-function greeting(/*Your Code Here */){
-   return /*Your Code Here */
-  }
+ function greeting(firstName, lastName){
+  return `Hello ${firstName} ${lastName}, nice to meet you!`
+}
   
   
   // 🦁🦁🦁 Step 3: Check your work by un-commenting the following calls to consume(): 🦁🦁🦁 
@@ -196,8 +197,8 @@ class CuboidMakerTwo{
 
 
 //🦄🦄🦄 Test your volume and surfaceArea methods by uncommenting the logs below: 🦄🦄🦄
-// console.log(cuboidTwo.volume()); // 100
-// console.log(cuboidTwo.surfaceArea()); // 130
+ //console.log(cuboidTwo.volume());  //100
+ //console.log(cuboidTwo.surfaceArea()); //130
 
 
 
