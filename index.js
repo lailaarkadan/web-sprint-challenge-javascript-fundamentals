@@ -17,7 +17,7 @@ myFunction();
 
 //🚀🚀🚀 ⬇️ 📝 Explanation ⬇️ 📝 🚀🚀🚀: 
 
-
+//A nested function can access the variable internal because the variable is on the global scope. 
 
 /* 🚀🚀🚀 Task 2: Counter 🚀🚀🚀 */
 /* Use summation to do the following:
@@ -100,9 +100,9 @@ function lowPopulationAnimals(habitats){
   */
   
   function USApop(habitats){
-    
+    return habitats.reduce((accumulator, item) => accumulator + item.population, 0);  
   }
-
+  
   // 🦁🦁🦁 Callbacks 🦁🦁🦁  
   /* 🦁🦁🦁 Step 1: Create a higher-order function 🦁🦁🦁
     * Use the higher-order function consume with 3 parameters: a, b and cb
